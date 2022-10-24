@@ -1,4 +1,4 @@
-import { ADD_RECIPE,GET_RECIPES,GET_DETAIL } from "../Actions"
+import {GET_RECIPES,GET_DETAIL } from "../Actions"
 
 const initialState ={
     recips:[],

@@ -1,6 +1,6 @@
 import './App.css';
 import React from "react";
-import { Route, Router } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Buscador from "./Components/Searchbar/bar"
 import FrontPage from './Components/FrontPage/Front';
 import NewRecipe from './Components/PostRecipe/PostRecipe';

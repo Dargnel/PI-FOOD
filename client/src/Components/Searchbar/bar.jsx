@@ -21,7 +21,7 @@ function Buscador(props) {
   ////states pagination
 const [loading,setLoading]= useState(true)
 const [currentPage,setCurrentPage]=useState(1);
-const [recipePerPage,setRecipePerPage]=useState(10)  
+const [recipePerPage]=useState(10)  
  ////////////////////////////////////////////
   const defaultRecipes =async ()=>{ 
      props.getRecipes("")
@@ -116,7 +116,7 @@ if(healtScore==="100-0"){
      return recipsFilter= props.recips.filter((i)=>{
 
       for (let value of i["diets"]){
-        if(value.ID==id)return true      
+        if(value.ID===id)return true      
     }
 
       if(i["diets"].includes(dieta)){
@@ -151,11 +151,11 @@ const indexOfFirsRecipe = indexOfLastRecipe - recipePerPage;
 
 ////////////////control de filtrado////////////////
 let currentRecipe =()=>{
-  if (filtradoRecipes=="ninguno"){
+  if (filtradoRecipes==="ninguno"){
     try {
       return recipsFilter.slice(indexOfFirsRecipe,indexOfLastRecipe)
     } catch (error) {
-      throw (["Failed to connect to server"])
+      throw (error.message)
     }
     
   }else if(filtradoRecipes!=="ninguno"){

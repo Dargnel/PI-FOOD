@@ -32,7 +32,7 @@ const RecipDetail =(props)=>{
 
             <div className={styles.content}>
             <div className={styles.contentimg}>
-                <img className={styles.image} src={props.recipsDetail.image} alt="Generic image" />
+                <img className={styles.image} src={props.recipsDetail.image} alt="Generic recip" />
             </div>
             </div>
 
@@ -92,7 +92,7 @@ const RecipDetail =(props)=>{
 
     <div className={styles.content}>
             <div className={styles.contentimg}>
-                <img className={styles.image} src={props.recipsDetail.image} alt="Generic image" />
+                <img className={styles.image} src={props.recipsDetail.image} alt="Generic recip" />
             </div>
             </div>
 
