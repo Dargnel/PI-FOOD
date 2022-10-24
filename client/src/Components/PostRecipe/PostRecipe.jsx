@@ -46,7 +46,7 @@ const NewRecipe = (props)=>{
     }
 
     const sendata= async()=>{
-        await axios.post('http://localhost:3001/recipes',{
+        await axios.post('/recipes',{
             diets:diets,
             title:title,
             resumPlate:resumPlate,
