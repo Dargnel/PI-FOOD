@@ -197,7 +197,7 @@ const options2 = [
   { value: "100-0", label: "100-0" },
 ];
 const options3 = [
-  { value: "none", label: "Ninguno" },
+  { value: "ninguno", label: "None" },
   { value: "Gluten free", label: "Gluten free" },
   { value: "Ketogenic", label: "Ketogeni" },
   { value: "Vegetarian", label: "Vegetarian" },
