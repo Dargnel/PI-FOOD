@@ -236,13 +236,12 @@ const options3 = [
 
           {/* Form Filtrado */}
         <form className={styles.form1}>
-        {/* <label className={styles.labelf} >Filtra por dieta:</label> */}
+
         <Select className={styles.filter} onChange={(ev)=>handleChangeAZ(ev)} options={options} value={null} placeholder="Sort Alphabetically"/>
-  
-        {/* <label className={styles.labelf} >Filtra por healt Score:</label> */}
+
         <Select className={styles.filter} onChange={(ev)=>handleChangehealt(ev)} options={options2} value={null} placeholder="Sort By Health Score"/>
         
-        {/* <label className={styles.labelf}  >Filtra por dieta:</label> */}
+   
         <Select className={styles.filterbig} onChange={(ev)=>handleChangeDiet(ev)} options={options3} placeholder="Sort By diet"/>
         <div className={styles.createcontend}>
         <NavLink className={styles.create} to={`/newrecipe`}><label>Create Recipe</label></NavLink>
