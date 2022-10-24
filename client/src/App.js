@@ -1,10 +1,21 @@
 import './App.css';
-
+import React from "react";
+import { Route, Router } from "react-router-dom";
+import Buscador from "./Components/Searchbar/bar"
+import FrontPage from './Components/FrontPage/Front';
+import NewRecipe from './Components/PostRecipe/PostRecipe';
+import RecipDetail from './Components/RecipesDetail/RecipesDetail';
 function App() {
   return (
-    <div className="App">
-      <h1>Henry Food</h1>
-    </div>
+    <React.Fragment>
+ 
+      <Route exact path="/newrecipe" component={NewRecipe} />
+      <Route exact path="/" component={FrontPage} />
+      <Route path="/recipes" component={Buscador} />
+      <Route path="/recip/:id" component={RecipDetail} />
+
+    
+    </React.Fragment>
   );
 }
 

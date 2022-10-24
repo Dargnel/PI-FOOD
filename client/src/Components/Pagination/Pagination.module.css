@@ -1,0 +1,25 @@
+
+  .contnav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+.ullista {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    
+  }
+  
+  .lilista {
+    display: flex;
+    background-color: #F6E3CA;
+    float: left;
+    margin-right: 10%;
+    margin-bottom: 10px;;
+    padding: 10%;
+  }
+

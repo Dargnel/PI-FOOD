@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+
+.content{
+
+    background-image:  url("https://img.freepik.com/vector-gratis/set-comida-italiana_1284-12802.jpg?w=2000");
+    background-size:contain;
+}
+
+.titlecont{
+    font-family: 'Dancing Script', cursive;
+    font-size:50px;
+    font-weight: 900;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form1{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1% 5% 1% 5%;
+    background-color: rgba(57, 9, 97, 0.774);
+    border-radius: 10px;
+}
+
+.form2{
+    font-family: 'Dancing Script', cursive;
+    font-size:20px;
+    font-weight: 900;
+    color: rgb(252, 252, 252);
+
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1% 5% 1% 5%;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 1%;
+    background-color: rgba(57, 9, 97, 0.774);
+    border-radius: 10px;
+
+}
+.filter{
+    width: 48%;
+    margin: 1%;
+
+}
+.filterbig{
+    width: 98%;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-left: 1%;
+ 
+}
+
+.labelf{
+    background-color: antiquewhite;
+}
+
+.createcontend{
+    display: flex;
+    width: 100%;
+    justify-content:flex-end;
+    align-items:flex-end;
+    margin-bottom: 1%;
+    margin-right: 1%;
+   
+}
+
+.create{
+    font-family: 'Dancing Script', cursive;
+    font-size:20px;
+    font-weight: 900;
+    color: rgb(252, 252, 252);
+    text-decoration: none;
+
+    background-color: rgba(154, 92, 206, 0.884);
+    border-radius: 5%;
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    padding: 1%;
+    margin-top: 1%;
+}
+
+.create:hover{
+    box-shadow: 0 0 40px 40px #6200ff4d inset;
+}
+
+
+.botonsumit{
+    font-family: 'Dancing Script', cursive;
+    font-size:20px;
+    font-weight: 900;
+
+    color: rgb(252, 252, 252);
+    background-color: rgba(154, 92, 206, 0.884);
+    border-radius: 5%;
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    text-decoration: none;
+    padding: 0.5%;
+    margin-left: 1%;
+}
+
+.input1{
+  height: 20px;
+}
+
+.input1:focus{
+    outline: none !important;
+    border:1px solid red;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+.botonsumit:hover{
+    box-shadow: 0 0 40px 40px #6200ff4d inset;
+}
+
+.contentrecips{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.recips{
+    display: flex;
+    border-radius: 10px;
+    
+    background-color: rgba(57, 9, 97, 0.774);
+    width: 90%;
+}
+
+.contentpagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination{
+    margin-top: 5px;
+    display: flex;
+    border-radius: 10px;
+    background-color: rgba(57, 9, 97, 0.774);
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 0.1%;
+}
+
+
+
