@@ -10,7 +10,7 @@ const Navbar =(props)=>{
     return (
         <div className={styles.content}>
             <div className={styles.navbarcontent}>
-                <NavLink className={styles.texbar} to={`/recipes`}>The World Of Flavor</NavLink>
+                <NavLink className={styles.texbar} to={`/recipes/!#1`}>The World Of Flavor</NavLink>
             </div>
         </div>
     )
