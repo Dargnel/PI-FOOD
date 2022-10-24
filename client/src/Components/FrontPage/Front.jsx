@@ -21,7 +21,7 @@ export default function FrontPage(props) {
           </div>
           <div className={styles.buton}>
           
-            <NavLink to={"/recipes"} className={styles.butonReal} >
+            <NavLink to={"/recipes/!#1"} className={styles.butonReal} >
             <p id={styles.line1}></p>
             <p id={styles.line3}></p>
               Let's Go To The Recipes</NavLink>

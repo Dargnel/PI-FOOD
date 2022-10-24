@@ -11,7 +11,7 @@ function App() {
  
       <Route exact path="/newrecipe" component={NewRecipe} />
       <Route exact path="/" component={FrontPage} />
-      <Route path="/recipes" component={Buscador} />
+      <Route path="/recipes/:page" component={Buscador} />
       <Route path="/recip/:id" component={RecipDetail} />
 
     

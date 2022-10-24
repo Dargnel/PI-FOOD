@@ -9,9 +9,10 @@ import styles from "./Pagination.module.css"
         
     }
 
-    const handleOnclick=(number)=>{
-        paginate(number)
+    const handleOnclick=async(number)=>{
         setNumber(number)
+        await  paginate(number)
+         
     }
    
     return(
@@ -20,7 +21,7 @@ import styles from "./Pagination.module.css"
         
         <ul className={styles.ullista}>
         {number>1&&  <li className={styles.lilista}>
-                <a onClick={()=>handleOnclick(number-1)} href="/recipes/!#" className="page-link">
+                <a onClick={()=>handleOnclick(number-1)} href={`/recipes/!#${number-1}`}className="page-link">
                     Prev
                 </a>
         </li>}
@@ -28,7 +29,7 @@ import styles from "./Pagination.module.css"
             {pageNumbers.map(number=>{
                return(
                 <li key={number} className={styles.lilista}>
-                    <a onClick={()=>handleOnclick(number)} href="/recipes/!#" className="page-link">
+                    <a onClick={()=>handleOnclick(number)} href={`/recipes/!#${number}`}className="page-link">
                         {number}
                     </a>
                 </li>
@@ -36,7 +37,7 @@ import styles from "./Pagination.module.css"
             })}
 
         {number<pageNumbers.length&&  <li className={styles.lilista}>
-                <a onClick={()=>handleOnclick(number+1)} href="/recipes/!#" className="page-link">
+                <a onClick={()=>handleOnclick(number+1)} href={`/recipes/!#${number}`} className="page-link">
                     Next
                 </a>
         </li>}  
