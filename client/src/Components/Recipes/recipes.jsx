@@ -40,15 +40,17 @@ console.log(props.loading);
 
         {  !props.loading&&
             props.currentRecipe.map((receta)=>{
-            return<div className={styles.recip} key={receta.id}>
+            return <NavLink className={styles.recip}  key={receta.id}  to={`/recip/${receta.id}`}>
+                
             <div className={styles.tex}>
-             <NavLink className={styles.navtex}  to={`/recip/${receta.id}`}>{receta.title}</NavLink>
+             <span className={styles.navtex}>{receta.title}</span> 
             </div>
             <div className={styles.imagecontent}>
              <img className={styles.imagereal} src={receta.image}alt="Imagen de receta"/>  
-            </div>
+            
             
             </div>
+            </NavLink>
         }) 
         }
     </div>

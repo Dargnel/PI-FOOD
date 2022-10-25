@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
 
 .lista{
     display: flex;
@@ -26,10 +26,12 @@
     min-width: 400px;
     height: 200px;
     margin: 10px 10px 10px 10px;
+    text-decoration: none;
+    color: rgb(69, 9, 126);
 }
 
 .tex{
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Crimson Text', serif;
     font-size:30px;
     font-weight: 900;
     
@@ -37,9 +39,7 @@
     height: 100%;
     width: 60%;
 } 
-.navtex{
-    text-decoration: none;
-}
+
 
 
 .contcenter{
@@ -88,7 +88,7 @@
 }
 
 .contnoseencontro{
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Crimson Text', serif;
     font-size:50px;
     font-weight: 900;
     color: #ffffff;

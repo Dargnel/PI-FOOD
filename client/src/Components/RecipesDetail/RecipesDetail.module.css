@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
 
 .contendad{
     background-image:  url("https://img.freepik.com/vector-gratis/set-comida-italiana_1284-12802.jpg?w=2000");
@@ -26,7 +26,7 @@
 }
 .connect2{
 
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Crimson Text', serif;
     font-size:30px;
     font-weight: 900;
 
@@ -68,11 +68,6 @@
     margin-left: 2%;
 }
 
-/* .healttex{
-    font-family: 'Dancing Script', cursive;
-    font-size:50px;
-    font-weight: 900;
-} */
 
 .connetextitle{
     display: flex;
@@ -92,7 +87,7 @@
 }
 
 .centertitle{
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Crimson Text', serif;
     font-size:50px;
     font-weight: 900;
 
@@ -106,7 +101,7 @@
 }
 
 .connecthealt{
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Crimson Text', serif;
     font-size:50px;
     font-weight: 900;
     
