@@ -1,21 +1,23 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector} from "react-redux";
 import {NavLink} from "react-router-dom"
 import styles from "./recipes.module.css"
 
 
 
+
 const ListRecipes =(props)=>{
 
-console.log(props.loading);
+const statestart = useSelector(store=>store)
+
+
+  
 
     return(
-    <div>
-
-         
+        
     <div className={styles.lista}>
             {/* Cargando */}
-        {props.loading&& 
+        {statestart.loading&& 
         <div className={styles.contcenter}>
             <div className={styles.contloader} >
                 <div className={styles.loader}>
@@ -30,7 +32,7 @@ console.log(props.loading);
         </div>
       }
             {/* No se encontro */}
-        {props.recips<=0&&!props.loading&& 
+        {statestart.recips<=0&&!statestart.loading&& 
         <div className={styles.contnoseencontro}>
             <img src="https://image.spreadshirtmedia.net/image-server/v1/designs/306710821,width=178,height=178.png" alt="Imagen triste" />
             <span className={styles.Noseencontro}>Recipe Not Found</span>
@@ -38,7 +40,7 @@ console.log(props.loading);
         </div>}
 
 
-        {  !props.loading&&
+        {  !statestart.loading&&
             props.currentRecipe.map((receta)=>{
             return <NavLink className={styles.recip}  key={receta.id}  to={`/recip/${receta.id}`}>
                 
@@ -56,16 +58,11 @@ console.log(props.loading);
     </div>
        
        
-    </div>)
+    )
 }
 
 
-const mapStateToProps=(state)=>{
-    return{
-        recips:state.recips,
-       
-    }
-}
 
 
-export default connect(mapStateToProps)(ListRecipes)
+
+export default ListRecipes;

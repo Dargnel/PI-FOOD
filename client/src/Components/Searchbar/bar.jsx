@@ -1,37 +1,38 @@
 import React, {useEffect,useState } from "react";
-import { connect } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
 import ListRecipes from "../Recipes/recipes";
 import Pagination from "../Pagination/Pagination";
-import { getRecipes } from "../../Actions";
+import { getRecipes,filterAlfa,filterHealt,filterDiet,currentPagefun,loadingfun} from "../../Actions";
 import Select from "react-select"
 import { NavLink } from "react-router-dom";
 import styles from "./bar.module.css"
 
 
-function Buscador(props) {
+function Buscador() {
+  
+const dispatch = useDispatch()
+const statestart = useSelector(store=>store)
 
+console.log(statestart);
 
   const [state,setState] = useState ({
     recipe: ""
   })
-  const [ordenarAlfa,setOrdenarAlfa]= useState("ninguno") 
-  const [filtradoRecipes,setFiltradoRecipes]=useState("ninguno")
-  const [healtScore,setOrdenarHealtScore]=useState("ninguno")
 
   ////states pagination
-const [loading,setLoading]= useState(true)
-const [currentPage,setCurrentPage]=useState(1);
-const [recipePerPage]=useState(10)  
  ////////////////////////////////////////////
   const defaultRecipes =async ()=>{ 
-     props.getRecipes("")
+    dispatch(getRecipes(""))
      
   }
 
   useEffect(()=>{
-    defaultRecipes()
+    if(statestart.recips.length<=0){
+      defaultRecipes()
+    }
+    
     setTimeout(function(){
-      setLoading(false);
+      dispatch(loadingfun(false));
   }, 3000);
     
   },[])
@@ -41,10 +42,10 @@ const [recipePerPage]=useState(10)
   }
  const handleSubmit=(event)=> {
     event.preventDefault();
-    setLoading(true);
-     props.getRecipes(state.recipe)
+    dispatch(loadingfun(true));
+    dispatch(getRecipes(state.recipe))
      setTimeout(function(){
-      setLoading(false);
+      dispatch(loadingfun(false));
   }, 3000);
    
   }
@@ -58,9 +59,9 @@ const [recipePerPage]=useState(10)
   let vars=false;
    /////filtrar por letra
    const handleChangeAZ=(event)=> {
-    setOrdenarHealtScore("ninguno")
-    setOrdenarAlfa(event.value);
-    setCurrentPage(1)
+    dispatch(filterHealt("ninguno"));
+    dispatch(filterAlfa(event.value));
+    dispatch(currentPagefun(1));
   }
 
 
@@ -85,35 +86,35 @@ const [recipePerPage]=useState(10)
     return 0;
   }
 
-  if(ordenarAlfa==="a-z"){
-      props.recips.sort( ordenarAZ);
+  if(statestart.ordenarAlfa==="a-z"){
+      statestart.recips.sort( ordenarAZ);
   }
 
-  if(ordenarAlfa==="z-a"){
-      props.recips.sort( ordenarZA);
+  if(statestart.ordenarAlfa==="z-a"){
+      statestart.recips.sort( ordenarZA);
   }
 
 
 //
 ///////////////////////filtrado por healtScore/////////////
 const handleChangehealt=(event)=> {
-  setOrdenarAlfa("ninguno")
-  setOrdenarHealtScore(event.value);
-  setCurrentPage(1)
+  dispatch(filterAlfa("ninguno"));
+  dispatch(filterHealt(event.value));
+  dispatch(currentPagefun(1))
   
 }
 
-if(healtScore==="0-100"){
-    props.recips.sort((a,b)=> a.healthScore-b.healthScore);
+if(statestart.filterhealtScore==="0-100"){
+    statestart.recips.sort((a,b)=> a.healthScore-b.healthScore);
 }
 
-if(healtScore==="100-0"){
-  props.recips.sort((a,b)=> b.healthScore-a.healthScore);
+if(statestart.filterhealtScore==="100-0"){
+  statestart.recips.sort((a,b)=> b.healthScore-a.healthScore);
 }
 //
 //////////////Filtrado por dietas///////////////
  const filtrar = (dieta,id)=>{
-     return recipsFilter= props.recips.filter((i)=>{
+     return recipsFilter= statestart.recips.filter((i)=>{
 
       for (let value of i["diets"]){
         if(value.ID===id)return true      
@@ -125,16 +126,17 @@ if(healtScore==="100-0"){
       return false
          })
       }
+      
  const handleChangeDiet=(event)=>{
-      setFiltradoRecipes(event.value)
-      setCurrentPage(1)
+      dispatch(filterDiet(event.value));
+      dispatch(currentPagefun(1));
 
     }
 
 //
 
 if(!vars){
-  recipsFilter = props.recips
+  recipsFilter = statestart.recips
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -142,24 +144,24 @@ if(!vars){
 
 
 //Change page
-const paginate = (pageNumber)=> setCurrentPage(pageNumber);
+const paginate = (pageNumber)=> dispatch(currentPagefun(pageNumber));
 
 
 
-const indexOfLastRecipe = currentPage * recipePerPage;
-const indexOfFirsRecipe = indexOfLastRecipe - recipePerPage;
+const indexOfLastRecipe = statestart.currentPage * statestart.recipePerPage;
+const indexOfFirsRecipe = indexOfLastRecipe - statestart.recipePerPage;
 
 ////////////////control de filtrado////////////////
 let currentRecipe =()=>{
-  if (filtradoRecipes==="ninguno"){
+  if (statestart.filtradoRecipesDiets==="ninguno"){
     try {
       return recipsFilter.slice(indexOfFirsRecipe,indexOfLastRecipe)
     } catch (error) {
       throw (error.message)
     }
     
-  }else if(filtradoRecipes!=="ninguno"){
-        switch (filtradoRecipes) {
+  }else if(statestart.filtradoRecipesDiets!=="ninguno"){
+        switch (statestart.filtradoRecipesDiets) {
         case "Gluten free":
          return filtrar("gluten free",1).slice(indexOfFirsRecipe,indexOfLastRecipe)
         case"Ketogenic":
@@ -253,7 +255,6 @@ const options3 = [
         <div className={styles.contentrecips}>
           <div className={styles.recips}>
           <ListRecipes
-            loading={loading}
             currentRecipe={currentRecipe()}
             />
           </div>
@@ -263,7 +264,6 @@ const options3 = [
         <div className={styles.contentpagination}>
           <div className={styles.pagination}>
         <Pagination
-          recipePerPage={recipePerPage}
           totalRecipes={recipsFilter.length}
           paginate = {paginate}
           />
@@ -276,20 +276,7 @@ const options3 = [
       );
 }
 
-
-const mapStateToProps=(state)=>{
-    return{
-        recips:state.recips,
-    }
-}
-
-const mapDispatchToProps=(dispatch)=>{
-    return{
-        getRecipes:(recipe)=>dispatch(getRecipes(recipe)),
-    }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps) (Buscador)
+export default  Buscador
 
 
 
