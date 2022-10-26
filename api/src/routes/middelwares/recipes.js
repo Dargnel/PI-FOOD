@@ -11,6 +11,21 @@ const {
 
 const router = Router();
 ////////////////////////////POST////////////////////////////////////////////////////////
+
+router.delete("/:idRecip",async(req,res)=>{
+    const {idRecip}=req.params;
+    try {
+        const deleteRecipe= await Recipe.destroy({
+            where: { id: idRecip },
+          });
+        res.status(201).send("Deleted");
+        
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+})
+
+
 router.post("/",async(req,res)=>{
 
     try {
