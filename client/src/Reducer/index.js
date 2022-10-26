@@ -7,10 +7,9 @@ const initialState ={
     filtradoRecipesDiets:"ninguno",
     ////////
      ////states pagination
-    recipePerPage:10,
+    recipePerPage:9,
     currentPage:1,
     number:1,
-
     ////////
     loading:true,
     //////////////

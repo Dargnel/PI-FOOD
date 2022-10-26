@@ -12,17 +12,25 @@ const RecipDetail =(props)=>{
     let idkey=0;
     const stepscreates =[]
 
+    var stringToHTML = function (str) {
+        var dom = document.createElement('div');
+        dom.innerHTML = str;
+        return dom;
+    };
+
    useEffect(()=>{
      dispatch(getDetail (props.match.params.id));
    },[])
     
-   
+
+
 
    if(statestart.recipsDetail.stepBystep){
         for(let valuepror in statestart.recipsDetail.stepBystep){
             stepscreates.push(statestart.recipsDetail.stepBystep[valuepror])
         }
    }
+ 
 /////////////////Retorna ficha de la api 
    if(statestart.recipsDetail.hasOwnProperty("aggregateLikes")){
     return (
@@ -44,6 +52,14 @@ const RecipDetail =(props)=>{
             </div>
             </div>
 
+            <div className={styles.connect2}>
+            <div className={styles.centertitle}>
+                    <span> Sumary</span>
+                    </div>
+            <div className={styles.resum}>
+            <div dangerouslySetInnerHTML={{__html: statestart.recipsDetail.summary}} />
+            </div>
+            </div>
      
 
             <div className={styles.connect2}>
@@ -109,7 +125,7 @@ const RecipDetail =(props)=>{
 
     <div className={styles.connect2}>
     <div className={styles.centertitle}>
-            <span> Resum Plate</span>
+            <span> Sumary</span>
             </div>
     <div className={styles.resum}>
         <span> {statestart.recipsDetail.resumPlate}</span>

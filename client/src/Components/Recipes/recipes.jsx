@@ -11,9 +11,10 @@ const ListRecipes =(props)=>{
 const statestart = useSelector(store=>store)
 
 
-  
+let idkey =1;
 
     return(
+         
         
     <div className={styles.lista}>
             {/* Cargando */}
@@ -49,9 +50,37 @@ const statestart = useSelector(store=>store)
             </div>
             <div className={styles.imagecontent}>
              <img className={styles.imagereal} src={receta.image}alt="Imagen de receta"/>  
-            
+            </div>
+
+            {/* Diets api */}
+            {receta.hasOwnProperty("aggregateLikes")&&
+            <div className={styles.connect2}> 
+            <div className={styles.centertitle}>
+                <span> Diets</span>
+            </div>
+                <ul  >      
+                    {receta.diets.map((receta)=>{
+                        idkey=idkey+1
+                    return(<li key={idkey} >{receta}</li>)
+            }) 
+                }</ul>
             
             </div>
+            }
+            {/* Diets data base */}
+            {!receta.hasOwnProperty("aggregateLikes")&&
+            <div className={styles.connect2}> 
+            <div className={styles.centertitle}>
+                        <span> Diets</span>
+            </div>
+                <ul > {receta.diets.map((recetadb)=>{
+                    idkey=idkey+105
+                return<li key={idkey}>{recetadb.Name}</li>
+                }) 
+                }</ul>
+            
+            </div>
+            }
             </NavLink>
         }) 
         }

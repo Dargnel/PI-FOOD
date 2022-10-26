@@ -1,5 +1,5 @@
 import React, {useEffect,useState } from "react";
-import {  useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector } from "react-redux";
 import ListRecipes from "../Recipes/recipes";
 import Pagination from "../Pagination/Pagination";
 import { getRecipes,filterAlfa,filterHealt,filterDiet,currentPagefun,loadingfun} from "../../Actions";
@@ -13,7 +13,6 @@ function Buscador() {
 const dispatch = useDispatch()
 const statestart = useSelector(store=>store)
 
-console.log(statestart);
 
   const [state,setState] = useState ({
     recipe: ""

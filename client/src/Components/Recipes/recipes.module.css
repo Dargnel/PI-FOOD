@@ -21,10 +21,12 @@
     border-radius: 10px;
     background-color: #ffffff;
     display: flex;
-    text-align: center;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     width: 40%;
     min-width: 400px;
-    height: 200px;
+    height: auto;
     margin: 10px 10px 10px 10px;
     text-decoration: none;
     color: rgb(69, 9, 126);
@@ -99,7 +101,10 @@
     margin: 10% 10% 10% 120%;
 }
 
-
+.connect2{
+    display: flex;
+    width: 100%;
+}
 
 
 @keyframes loader{

@@ -4,10 +4,7 @@ import styles from './Front.module.css';
 
 
 
-export default function FrontPage(props) {
-
-  
-  
+export default function FrontPage() {
 
   return (
     <div >
