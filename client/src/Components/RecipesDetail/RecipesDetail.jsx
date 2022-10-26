@@ -108,6 +108,15 @@ const RecipDetail =(props)=>{
             </div>
 
     <div className={styles.connect2}>
+    <div className={styles.centertitle}>
+            <span> Resum Plate</span>
+            </div>
+    <div className={styles.resum}>
+        <span> {statestart.recipsDetail.resumPlate}</span>
+    </div>
+    </div>
+
+    <div className={styles.connect2}>
     <div className={styles.connecthealt}>
         <span>Healt Score: {statestart.recipsDetail.healthScore}</span>
     </div>
