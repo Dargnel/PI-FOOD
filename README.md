@@ -7,7 +7,7 @@
 </p>
 <p align="center">
   <img height="200" src="./portada.PNG" />
-  <img height="200" src="./cooking.png" />
+  <img height="200" src="./home.jfif" />
 </p>
 
 ## Objetivos del Proyecto
