@@ -5,12 +5,11 @@
 <p align="right">
   <img height="200" src="./cooking.png" />
 </p>
-<p align="right">
+<p align="center">
+  <img height="200" src="./portada.PNG" />
   <img height="200" src="./cooking.png" />
 </p>
-<p align="right">
-  <img height="200" src="./cooking.png" />
-</p>
+
 ## Objetivos del Proyecto
 
 - Construir una App utlizando React, Redux, Node y Sequelize.
